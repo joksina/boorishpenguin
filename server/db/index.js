@@ -2,7 +2,7 @@ var Sequelize = require('sequelize');
 
 var database = process.env.DATABASE || 'townhall';
 var dbUser = process.env.DBUSER || 'root';
-var dbPass = process.env.DBPASS || "mypw";
+var dbPass = process.env.DBPASS || '';
 var dbHost = process.env.DBHOST || 'localhost';
 
 var db = new Sequelize(database, dbUser, dbPass, {
