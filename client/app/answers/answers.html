@@ -81,7 +81,10 @@
       <div class="form-group">
         <textarea class="form-control" rows='5' cols='80' ng-model='newAnswer.text' maxlength="255" ng-trim="false"  placeholder='Write your answer'></textarea>
         <span>Characters left: {{255 - newAnswer.text.length}}</span>
-        <input class="btn btn-primary" type='submit' value='upload'>
+        <div ng-controller = "myCtrl">
+         <input type = "file" file-model = "myFile"/>
+         <button ng-click = "uploadFile()">upload me</button>
+      </div>
       </div>
       <div class="form-group pull-right">
         <input class="btn btn-default" type='reset' value='Cancel'>

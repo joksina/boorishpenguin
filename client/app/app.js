@@ -9,6 +9,7 @@ angular.module('boorishpenguin', [
   'boorish.answers',
   'boorish.auth',
   'myChat',
+  'uploadF',
   'ngRoute'
   ])
 

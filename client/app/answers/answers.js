@@ -90,10 +90,9 @@ angular.module('boorish.answers', [])
       console.log(user.id === $scope.data.answers[index].userid);
     });
   };
-
   if (!Auth.isAuth()) {
     $location.path('/signin');
   } else {
     $scope.getQuestion();
   }
-})
+});
