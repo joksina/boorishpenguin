@@ -42,6 +42,16 @@ var Course = db.define('Course', {
   timestamps: false
 });
 
+var Session = db.define('Session',{
+  Course: Sequelize.STRING,
+  Time: Sequelize.DATE
+
+});
+
+var SessionQ = db.define('SessionQ',{
+  Question: Sequelize.STRING
+});
+
 var Post = db.define('Post', {
   title: Sequelize.STRING,
   text: Sequelize.STRING,
@@ -94,6 +104,15 @@ User.belongsToMany(Course, {
   through: 'CourseUser'
 });
 
+User.hasMany(Session);
+Session.belongsTo(User);
+
+Session.hasMany(SessionQ);
+SessionQ.belongsTo(Session);
+
+User.hasMany(SessionQ);
+SessionQ.belongsTo(User);
+
 User.hasMany(Post);
 Post.belongsTo(User);
 Tag.hasMany(Post);
@@ -106,20 +125,28 @@ Post.belongsToMany(User, {as: 'Vote', through: 'Like'});
 User.belongsToMany(Post, {through: 'Like'});
 
 User.sync()
-.then(function() {
-  return Tag.sync();
-})
-.then(function() {
-  return Course.sync();
-})
-.then(function() {
-  return Post.sync();
-})
-.then(function() {
-  return Like.sync();
-});
+    .then(function() {
+      return Tag.sync();
+    })
+    .then(function() {
+      return Course.sync();
+    })
+    .then(function() {
+      return Post.sync();
+    })
+    .then(function(){
+      return Session.sync();
+    })
+    .then(function(){
+      return SessionQ.sync();
+    })
+    .then(function(){
+      return Like.sync();
+    });
 
 exports.User = User;
 exports.Course = Course;
 exports.Tag = Tag;
 exports.Post = Post;
+exports.Session = Session;
+exports.SessionQ = SessionQ;

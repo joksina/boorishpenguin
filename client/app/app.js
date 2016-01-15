@@ -1,5 +1,8 @@
 angular.module('boorishpenguin', [
+
   'boorish.services',
+  'boorish.session',
+  'boorish.detail',
   'boorish.users',
   'boorish.ask',
   'boorish.questions',
@@ -11,33 +14,41 @@ angular.module('boorishpenguin', [
 
 .config(function ($routeProvider, $sceProvider) {
   $routeProvider
-    .when('/', {
+      .when('/', {
       templateUrl: 'app/questions/questions.html',
       controller: 'questionsController'
     })
-    .when('/ask', {
+      .when('/ask', {
       templateUrl: 'app/ask/ask.html',
       controller: 'askController'
     })
-    .when('/questions', {
+      .when('/questions', {
       templateUrl: 'app/questions/questions.html',
       controller: 'questionsController'
     })
-    .when('/questions/:id', {
+      .when('/questions/:id', {
       templateUrl: 'app/answers/answers.html',
       controller: 'answersController'
     })
-    .when('/users', {
+      .when('/users', {
       templateUrl: 'app/users/users.html',
       controller: 'UsersController'
     })
-    .when('/signin', {
+      .when('/session',{
+        templateUrl: 'app/session/session.html',
+        controller: 'SessionController'
+      })
+      .when('/sessions/:id', {
+        controller: 'DetailsController',
+        templateUrl: 'app/detail/detail.html'
+      })
+      .when('/livestream',{
+        templateUrl: 'app/chat/chat.html',
+        controller: 'chatController'
+      })
+      .when('/signin', {
       templateUrl: 'app/auth/signin.html',
       controller: 'AuthController'
-    })
-    .when('/livestream', {
-      templateUrl: 'app/chat/chat.html',
-      controller: 'chatController'
     })
     .otherwise({
       routeTo: '/signin'

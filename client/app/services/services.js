@@ -2,6 +2,36 @@ angular.module('boorish.services', [])
 
 // Questions factory handles all requests to add, retrieve, or modify questions in the database
 
+    .factory('Sessions', function($http, $location) {
+      return {
+        addSession: function (session) {
+          console.log(session);
+          return $http({
+            method: 'POST',
+            url: '/townhall/sessions',
+            data: JSON.stringify({
+              id_user: session.userId,
+              course: session.course,
+              time: session.time
+            })
+          })
+        },
+
+        postSessionQ : function(sessionQuestion, sessionID){
+          return $http({
+            method: 'POST',
+            url: '/townhall/sessionQ',
+            data: JSON.stringify({
+              sessionQ: sessionQuestion.sessionQ,
+              id_session: sessionID,
+              id_user: sessionQuestion.user
+            })
+          })
+
+        }
+      }
+    })
+
 .factory('Questions', function($http, $location) {
   return {
     // add a question from /ask
@@ -39,6 +69,28 @@ angular.module('boorish.services', [])
       .then(function(res) {
         return res; // returns question and related answers
       })
+    },
+
+    getAllSessions: function(){
+      return $http({
+        method: 'GET',
+        url: '/townhall/sessions'
+      })
+          .then(function(res){
+            return res;
+          })
+
+    },
+
+    getSession: function(path){
+      return $http({
+        method: 'GET',
+        url: '/townhall' + path
+      })
+          .then(function(res){
+            return res;
+          })
+
     },
 
     // updates a question. takes in the id of the question and the required modification
@@ -171,6 +223,7 @@ angular.module('boorish.services', [])
         url: '/townhall/tags'
       })
       .then(function(res) {
+        console.log(res);
         return res.data;
       });
     }

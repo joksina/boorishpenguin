@@ -11,7 +11,7 @@ angular.module('boorish.ask', [])
   $scope.question = {};
 
   if (!Auth.isAuth()) {
-    $location.path('/signin')
+    $location.path('/signin');
   } else {
 
     Tags.getTags()

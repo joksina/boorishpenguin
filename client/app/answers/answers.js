@@ -8,14 +8,14 @@ angular.module('boorish.answers', [])
   ///// Answers Controller:
   ///// This controller enables functionality to get and display individual questions and the answers that are related to that question
   ///// Methods:
-  /////   getQuestion. Retreives the Post data from the database using the getQuestion method. This returns an array of Posts.
+  /////   getQuestion. Retrieves the Post data from the database using the getQuestion method. This returns an array of Posts.
   /////   IMPORTANT: The question will always be the first item in the results array.
   /////
   /////   addAnswer. Pulls the id of the current user with the getUserWithID factory method and add answer with the addAnswer factory methdod
   /////   
   /////   updateAnswer. There are two modifications that a user can make on an answer. 
   /////       1. 'like': Any user can like an answer.
-  /////       2. 'good': Only a teacer can mark a question as 'good'.
+  /////       2. 'good': Only a teacher can mark a question as 'good'.
   /////   
   /////   updateQuestion. There are four modifications that a user can make on a question:
   /////       1. 'like': Any user can like a question.
@@ -42,6 +42,7 @@ angular.module('boorish.answers', [])
     Users.getUserWithId().then(function(userID) { // grabs the userID
       $scope.newAnswer.user = userID; // adds the userID to the answer
       Answers.addAnswer($scope.newAnswer, id_question).then(function() { // adds answer
+        console.log($scope.newAnswer);
         $scope.newAnswer.text = '';
         $scope.getQuestion(); // refreshes the view
       });

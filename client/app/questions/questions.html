@@ -1,8 +1,10 @@
 <div ng-module='boorish.questions' >
-  <h3>Questions</h3>
+    <div class="page-header text-center">
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
 
+    <h3>Questions</h3>
     <hr>
-
       <div ng-repeat='question in questions | filter:searchText | orderBy:"-updatedAt"' class="question-list-item">
         <div class="col-sm-2 col-xs-3">
           <div>
@@ -31,11 +33,25 @@
 
           <div class="course">{{ question.coursename }}</div>
           <div class="tag">{{ question.tagname }}</div>
-          <div>- asked by {{ question.user }} at {{ question.createdAt }}</div>
+          <div>- asked by {{ question.user }} at {{ question.createdAt | amDateFormat: 'dddd, MMMM Do YYYY, h:mm a' }}</div>
         </div>
         <hr>
       </div>
+        </div>
   <!--<hr>-->
+    <h3>Sessions</h3>
+        <hr>
+<div ng-repeat='session in sessions'
+     data-ng-click="getSession(session.id)">
+    <div class="col-sm-10 col-xs-9">
+        <h3>
+            <a ng-href='#/sessions/{{ session.id }}'>{{ session.user }}</a>
+        </h3>
+
+        <div class="course">{{ session.course }}</div>
+        <div >{{ session.time | amDateFormat: 'dddd, MMMM Do YYYY, h:mm a' }}</div>
+    </div>
+
 </div>
 
 

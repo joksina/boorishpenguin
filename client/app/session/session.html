@@ -1,0 +1,30 @@
+<div ng-module="boorish.session"  ng-controller="SessionController">
+    <form>
+        <h3>CREATE A NEW SESSION</h3>
+        <hr>
+        <div col="col-md-4">
+            <input id = 'inputCourse' class = "form-control " type="text" placeholder="Course Name" ng-model="Course" required/>
+        </div>
+        <br>
+        <br>
+        <div>
+            <label>Enter your preferred time and date below</label>
+
+            <input type="datetime-local"
+                   class = "form-control "
+                   ng-model="Time"
+                   [name="string"]
+                   [min="string"]
+                   [max="string"]
+                   [ng-min=""]
+                   [ng-max=""]
+                   [required="string"]
+                   [ng-required="string"]
+                   [ng-change="string"]>
+        </div>
+        <div class="form-group pull-right">
+            <input class="btn btn-default" type='reset' value='Cancel'>
+            <input class="btn btn-primary" ng-click='createEvent()' value='Create Event'>
+        </div>
+    </form>
+</div>

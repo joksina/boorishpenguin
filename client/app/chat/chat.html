@@ -1,14 +1,15 @@
-  <div class="chat" ng-controller="chatController">
-      <header>Live Chat</header>
 
-      <div id="chat">
-      <ul id="message" class="chatMessage">
-        <li ng-repeat="msg in messages">
-          <strong class="chatMessage">{{ msg.from }}</strong>
-          {{ msg.body }}
-        </li>
-      </ul>
-      </div>
-        <input class="input" ng-model="name" type="text" id="nameInput" placeholder="Enter Your name">
-        <input class=" "ng-model="msg" ng-keydown="addMessage($event)" type="text" id="messageInput"  placeholder="Type a message...">
-  </div>
+<div class="chat" ng-controller="chatController">
+    <header>Live Chat</header>
+    ​
+    <div id="chat">
+        <ul id="message" class="chatMessage">
+            <li ng-repeat="msg in messages">
+                <strong class="chatMessage">{{ msg.from }}</strong>
+                {{ msg.body }}
+            </li>
+        </ul>
+    </div>
+    <input class="input" ng-model="name" type="text" id="nameInput" placeholder="Enter Your name">
+    <input class=" "ng-model="msg" ng-keydown="addMessage($event)" type="text" id="messageInput"  placeholder="Type a message...">
+</div>
