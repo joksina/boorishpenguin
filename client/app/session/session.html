@@ -6,10 +6,12 @@
             <input id = 'inputCourse' class = "form-control " type="text" placeholder="Course Name" ng-model="Course" required/>
         </div>
         <br>
-        <br>
         <div>
-            <label>Enter your preferred time and date below</label>
 
+            <input id = 'inputUrl' class = "form-control " type="text" placeholder="Place your Youtube Live Link here" ng-model="Url" required/>
+            <br>
+
+            <label>Enter your preferred time and date below</label>
             <input type="datetime-local"
                    class = "form-control "
                    ng-model="Time"
@@ -20,11 +22,12 @@
                    [ng-max=""]
                    [required="string"]
                    [ng-required="string"]
-                   [ng-change="string"]>
+                   [ng-change="string"]/>
         </div>
+
         <div class="form-group pull-right">
             <input class="btn btn-default" type='reset' value='Cancel'>
-            <input class="btn btn-primary" ng-click='createEvent()' value='Create Event'>
+            <input class="btn btn-primary" type='SUBMIT' ng-click='createEvent()' value='Create Event'>
         </div>
     </form>
 </div>

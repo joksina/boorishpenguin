@@ -12,9 +12,11 @@ angular.module('boorish.session', [])
         } else {
 
             $scope.createEvent = function () {
+                console.log($scope.Url);
                 $scope.session.userId = $window.localStorage.getItem('com.boorish');  // pulls userId from localStorage
-                $scope.session.course = $scope.Course; // pulls selected course
-                $scope.session.time = $scope.Time;  // pulls selected tag
+                $scope.session.url = $scope.Url;// pulls url
+                $scope.session.course = $scope.Course; // pulls course
+                $scope.session.time = $scope.Time;  // pulls selected time
                 Sessions.addSession($scope.session)
                     .then(function () { // adds new Question with addQuestion factory method
                     $location.path('/questions'); // redirects to all questions

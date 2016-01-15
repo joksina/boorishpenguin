@@ -20,6 +20,7 @@ module.exports = function(app, express, ensureAuth) {
   app.post('/townhall/sessionQ',  ensureAuth, sessionControllers.addSessionQuestion);
   app.get('/townhall/sessions', ensureAuth, sessionControllers.allSessions);
   app.get('/townhall/sessions/:id', ensureAuth, sessionControllers.readSession);
+  app.post('/townhall/queuedQ',  ensureAuth, sessionControllers.addQueuedQuestion);
 
   app.post('/townhall/answers', ensureAuth, answerControllers.newAnswer);
   app.post('/townhall/answers/:id', ensureAuth, answerControllers.modAnswer);

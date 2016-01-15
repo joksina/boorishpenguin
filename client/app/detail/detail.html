@@ -7,16 +7,41 @@
         <div class="answer-content">
             <h3>{{data.questions.length}} Questions</h3>
             <hr>
-            <div ng-repeat='question in data.questions' class="answer-page-item">
-                <div class="col-xs-3">
-                    <div>{{question.text}}</div>
+            <button type="text" type="submit" ng-click='QueuedQ()' class="btn btn-default">Submit</button>
+
+            <div ng-repeat='question in data.questions' class="answer-page-item" id="checkboxList">
+                <div class="action-checkbox">
+                        <input id="{{question.text}}" type="checkbox" value="{{question.text}}" ng-checked="selection.indexOf(question.text) > -1" ng-click="toggleSelection(question.text)" />
+
+                        <label for="{{question.text}}"></label>
+                        {{question.text}}
                 </div>
+            <!--<span style="color:white;" class="selected-item">Selected Items:</span>-->
+                <!--<div ng-repeat="name in selection" class="selected-item">-->
+                <!--{{name}}-->
+                <!--</div>-->
+
                 <div class="col-xs-3">
-                    <div>{{question.createdAt | amCalendar}}</div>
+                        <div> {{question.createdAt | amCalendar}} </div>
                 </div>
             </div>
-         </div>
+        </div>
 
+        <!--<div class="answer-content">-->
+            <!--<h3>Selected Questions</h3>-->
+            <!--<hr>-->
+            <!--&lt;!&ndash;<div ng-repeat='question in data.questions' class="answer-page-item">&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="col-xs-3">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div>{{question.text}}</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="col-xs-3">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div>{{question.createdAt | amCalendar}}</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+
+        <!--</div>-->
+    </div>
     <!--<div ng-controller="ModalCtrl" class="container">-->
         <div>
             <h3>NEW QUESTION</h3>
