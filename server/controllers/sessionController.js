@@ -88,7 +88,7 @@ module.exports = {
                 include: [db.User]
             })
             .then(function(session) {
-                var formattedS = [{id: session.id, user: session.User.name, course: session.Course, time: session.Time}];
+                var formattedS = [{id: session.id, user: session.User.name, url: session.Url, course: session.Course, time: session.Time}];
 
                 db.SessionQ.findAll({
                         where: {

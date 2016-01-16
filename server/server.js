@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/../client'));
 app.use(cookieParser());
-app.use(multer({dest: '/fileUpload'}));
+// app.use(multer({dest: '/fileUpload'}));
 app.use(session({ secret: 'hi' , resave: true, saveUninitialized: false}));
 app.use(passport.initialize());
 app.use(passport.session());

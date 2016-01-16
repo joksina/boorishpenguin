@@ -3,11 +3,12 @@
         <h3>{{data.question.user}}</h3>
         <div class="course">{{ data.question.course }}</div>
         <div >{{data.question.time | amDateFormat: 'MMMM Do YYYY, h:mm a' }}</div>
+        <div><a ng-href='#/livestream/{{ data.question.id }}'>Go to the live link</a></div>
 
         <div class="answer-content">
             <h3>{{data.questions.length}} Questions</h3>
             <hr>
-            <button type="text" type="submit" ng-click='QueuedQ()' class="btn btn-default">Submit</button>
+            <button type="text" type="submit" ng-disabled="isDisabled" ng-click='QueuedQ()' class="btn btn-default">Submit</button>
 
             <div ng-repeat='question in data.questions' class="answer-page-item" id="checkboxList">
                 <div class="action-checkbox">

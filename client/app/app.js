@@ -8,8 +8,8 @@ angular.module('boorishpenguin', [
   'boorish.questions',
   'boorish.answers',
   'boorish.auth',
-  'myChat',
   'uploadF',
+  'boorish.livestream',
   'ngRoute'
   ])
 
@@ -51,7 +51,11 @@ angular.module('boorishpenguin', [
       templateUrl: 'app/auth/signin.html',
       controller: 'AuthController'
     })
-    .otherwise({
+    .when('/livestream/:eventId', {
+      templateUrl: 'app/livestream/livestream.html',
+      controller: 'livestreamController'
+    })
+      .otherwise({
       routeTo: '/signin'
     });
 

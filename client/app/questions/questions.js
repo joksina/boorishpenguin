@@ -25,6 +25,7 @@ angular.module('boorish.questions', ['angularMoment'])
         .then(function(data){
           var inList = data.data.results;
           $scope.sessions = data.data.results;
+          console.log(data.data.results);
         })
   };
 

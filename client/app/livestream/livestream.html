@@ -1,0 +1,31 @@
+<div ng-module="boorish.livestream" ng-controller="livestreamController" >
+
+    <h1>{{ title }} </h1> <h4>{{ subject }} By {{ author }}</h4>
+
+    <div id="videoStream">
+        <!--LiveStream from youtube-->
+        <iframe width="560" height="315" src={{youtubeUrl}} frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div>
+        <h2>Questions</h2>
+        <div class="sideQuestions" ng-repeat="question in questions">
+            <h4>Q</h4>
+            {{ question }}
+        </div>
+    </div>
+
+    <div class="chat" ng-controller="chatController">
+        <div id="chat">
+            <ul style="list-style-type:none" id="message" class="chatMessage">
+                <li ng-repeat="msg in messages">
+                    <strong class="chatMessage">{{ msg.from }}</strong>
+                    {{ msg.body }}
+                </li>
+            </ul>
+        </div>
+        <input class="input" ng-model="name" type="text" id="nameInput" placeholder="Enter Your name">
+        <input class=" "ng-model="msg" ng-keydown="addMessage($event)" type="text" id="messageInput"  placeholder="Type a message...">
+    </div>
+
+</div>
